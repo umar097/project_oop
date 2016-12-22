@@ -1,0 +1,54 @@
+#include<string>
+#include<iostream>
+using namespace std;
+
+class Book{
+private:
+	string name;
+	int ISBN;
+	string Author;
+	string Review;
+public:
+	Book();
+	Book(string name, int ISBN, string Author);
+	string getName();
+	int getisbn();
+	string getauthor();
+	string getreview();
+	void setName(string newname);
+	void setisbn(int newisbn);
+	void setath(string newauth);
+	void setrevw(string newrevw);
+};
+
+class BinTree //for using the binarytree
+{
+private:
+	struct tree_node 
+	{
+		tree_node* left;
+		tree_node* right;
+		tree_node* parent;
+		Book data;
+	};
+	tree_node* root;
+public:
+	BinTree()  //constructor
+	{
+		root = NULL;
+	}
+	 //member ftns for bts
+	bool isEmpty() const 
+	  { return root == NULL; }
+	void print_inorder();
+	void inorder(tree_node*);
+	void enter(Book);
+	void remove(string);
+	void search(string _name, int _isbn, string _author);
+	//void search(string name); {commented so that they may be used further if required}
+	//void search(string author);
+	//void search(int isbn);
+	void changeReview(string , int );
+	void copyOf(tree_node* treeOriginal, tree_node *parent, tree_node*& treeNew);
+};
+
