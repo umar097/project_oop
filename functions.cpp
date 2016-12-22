@@ -22,17 +22,17 @@ int Book::getisbn()
 	return ISBN;
 }
 
-void BinTree::enter(Book p)//to enter the datas for book in form of trees
+void BinTree::enter(Book p)
 {
-    tree_node* t = new tree_node;
+    tree_node* b= new tree_node;
     tree_node* parent;
-    t->data = p;
-    t->left = NULL;
-    t->right = NULL;
+    b->data = p;
+    b->left = NULL;
+    b->right = NULL;
     parent = NULL;
   
     if(isEmpty()) 
-		root = t;
+		root = b;
     else
     {
         tree_node* curr;
@@ -41,22 +41,21 @@ void BinTree::enter(Book p)//to enter the datas for book in form of trees
         while(curr!=NULL)
         {
             parent = curr;
-            if(t->data.getName() > curr->data.getName()) 
+            if(b->data.getName() > curr->data.getName()) 
 				curr = curr->right;
             else 
 				curr = curr->left;
         }
 
-        if(t->data.getName() < parent->data.getName())
-           parent->left = t;
+        if(b->data.getName() < parent->data.getName())
+           parent->left = b;
         else
-           parent->right = t;
+           parent->right = b;
     }
 }
 
-void BinTree::remove(string _name) //removing a book
+void BinTree::remove(string _name)
 {
-		//insertions are as leaf nodes
 		tree_node* curr, *parent;
 		curr = root;
 		// to get node parent
@@ -64,7 +63,8 @@ void BinTree::remove(string _name) //removing a book
 		{
 			if (curr->data.getName() == _name)
 			{
-				curr->data.setName("not_found"); // now book is not available
+				curr->data.setName("issued");// now book is not available
+				// operation
 				break;
 			}
 			else
