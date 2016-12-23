@@ -48,7 +48,5 @@ public:
 	//void search(string name); {commented so that they may be used further if required}
 	//void search(string author);
 	//void search(int isbn);
-	void changeReview(string , int );
-	void copyOf(tree_node* treeOriginal, tree_node *parent, tree_node*& treeNew);
 };
 
